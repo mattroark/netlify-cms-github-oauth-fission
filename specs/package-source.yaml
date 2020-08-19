@@ -1,0 +1,25 @@
+include:
+- source.zip
+kind: ArchiveUploadSpec
+name: source-zip-uzeE
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: source
+  namespace: netlify-github-oauth
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: nodejs
+    namespace: netlify-github-oauth
+  source:
+    checksum: {}
+    type: url
+    url: archive://source-zip-uzeE
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2020-08-18T22:10:07Z"

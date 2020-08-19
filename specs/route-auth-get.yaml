@@ -1,0 +1,20 @@
+apiVersion: fission.io/v1
+kind: HTTPTrigger
+metadata:
+  creationTimestamp: null
+  name: auth-get
+  namespace: netlify-github-oauth
+spec:
+  createingress: false
+  functionref:
+    functionweights: null
+    name: auth
+    type: name
+  host: ""
+  ingressconfig:
+    annotations: null
+    host: '*'
+    path: /auth
+    tls: ""
+  method: GET
+  relativeurl: /auth

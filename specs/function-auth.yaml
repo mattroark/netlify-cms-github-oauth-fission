@@ -1,0 +1,31 @@
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: auth
+  namespace: netlify-github-oauth
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  configmaps:
+  - name: env
+    namespace: netlify-github-oauth
+  environment:
+    name: nodejs
+    namespace: netlify-github-oauth
+  functionTimeout: 60
+  package:
+    functionName: auth.auth
+    packageref:
+      name: source
+      namespace: netlify-github-oauth
+  resources: {}
+  secrets:
+  - name: env
+    namespace: netlify-github-oauth
